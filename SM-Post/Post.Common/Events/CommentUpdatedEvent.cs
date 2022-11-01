@@ -9,7 +9,7 @@ namespace Post.Common.Events
         }
 
         public Guid CommentId { get; set; }
-        public string COmment { get; set; }
+        public string Comment { get; set; }
         public DateTime EditDate { get; set; }
 
     }
