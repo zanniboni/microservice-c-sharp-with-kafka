@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Post.Cmd.Api", "Post.Cmd\Po
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Post.Cmd.Domain", "Post.Cmd\Post.Cmd.Domain\Post.Cmd.Domain.csproj", "{D73C45D2-12A8-41C8-82A8-22D7E6CDE5F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Post.Cmd.Infraestructure", "Post.Cmd\Post.Cmd.Infraestructure\Post.Cmd.Infraestructure.csproj", "{DBF1AE56-D450-4E55-95E7-B7608006D6F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Post.Cmd.Infrastructure", "Post.Cmd\Post.Cmd.Infrastructure\Post.Cmd.Infrastructure.csproj", "{DBF1AE56-D450-4E55-95E7-B7608006D6F2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Post.Query", "Post.Query", "{39E0987D-1AB8-48D4-B75B-0DB3BA44A99F}"
 EndProject
@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Post.Query.Api", "Post.Quer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Post.Query.Domain", "Post.Query\Post.Query.Domain\Post.Query.Domain.csproj", "{679C308F-B375-47CF-A207-14F989B6FD92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Post.Query.Infraestructure", "Post.Query\Post.Query.Infraestructure\Post.Query.Infraestructure.csproj", "{A4008F9F-6F23-4897-B103-BDC519606670}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Post.Query.Infrastructure", "Post.Query\Post.Query.Infrastructure\Post.Query.Infrastructure.csproj", "{A4008F9F-6F23-4897-B103-BDC519606670}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
