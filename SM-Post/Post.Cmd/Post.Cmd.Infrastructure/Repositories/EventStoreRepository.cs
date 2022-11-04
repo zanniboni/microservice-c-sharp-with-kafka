@@ -9,10 +9,11 @@ namespace Post.Cmd.Infrastructure.Repositories
     public class EventStoreRepository : IEventStoreRepository
     {
         private readonly IMongoCollection<EventModel> _eventStoreCollection;
-        public EventStoreRepository(IOptions<MongoDBConfig> config) {
+        public EventStoreRepository(IOptions<MongoDBConfig> config)
+        {
             var mongoClient = new MongoClient(config.Value.ConnectionString);
             var mongoDatabase = mongoClient.GetDatabase(config.Value.Database);
-            
+
             _eventStoreCollection = mongoDatabase.GetCollection<EventModel>(config.Value.Collection);
         }
         public async Task<List<EventModel>> FindByAggregateId(Guid aggregateId)
