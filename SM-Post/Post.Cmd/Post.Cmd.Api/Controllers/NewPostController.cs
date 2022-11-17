@@ -7,7 +7,7 @@ using Post.Common.DTOs;
 namespace Post.Cmd.Api.Controllers
 {
     [ApiController]
-    [Route("api/v1/[controller")]
+    [Route("api/v1/[controller]")]
     public class NewPostController: ControllerBase
     {
         private readonly ILogger<NewPostController> _logger;
@@ -27,6 +27,7 @@ namespace Post.Cmd.Api.Controllers
             await _commandDispatcher.SendAsync(command);
 
             return StatusCode(StatusCodes.Status201Created, new NewPostResponse{
+                Id = id,
                 Message = " New Post Creation request completed successfully!"
             });
             } catch (InvalidOperationException ex) {

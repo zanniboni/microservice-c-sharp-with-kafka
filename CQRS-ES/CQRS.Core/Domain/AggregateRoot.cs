@@ -28,7 +28,7 @@ namespace CQRS.Core.Domain
             }
             method.Invoke(this, new object[] { @event });
 
-            if (!isNew) {
+            if (isNew) {
                 _changes.Add(@event);
             }
         }

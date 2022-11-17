@@ -1,5 +1,3 @@
-
-using System.Windows.Input;
 using Confluent.Kafka;
 using CQRS.Core.Domain;
 using CQRS.Core.Handlers;
@@ -26,7 +24,7 @@ builder.Services.AddScoped<IEventStore, EventsStore>();
 builder.Services.AddScoped<IEventSourcingHandler<PostAggregate>, EventSourcingHandler>();
 builder.Services.AddScoped<ICommandHandler, CommandHandler>();
 
-// Register Command Handler Methods
+// register command handler methods
 var commandHandler = builder.Services.BuildServiceProvider().GetRequiredService<ICommandHandler>();
 var dispatcher = new CommandDispatcher();
 dispatcher.RegisterHandler<NewPostCommand>(commandHandler.HandleAsync);
@@ -38,7 +36,7 @@ dispatcher.RegisterHandler<RemoveCommentCommand>(commandHandler.HandleAsync);
 dispatcher.RegisterHandler<DeletePostCommand>(commandHandler.HandleAsync);
 builder.Services.AddSingleton<ICommandDispatcher>(_ => dispatcher);
 
-
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
