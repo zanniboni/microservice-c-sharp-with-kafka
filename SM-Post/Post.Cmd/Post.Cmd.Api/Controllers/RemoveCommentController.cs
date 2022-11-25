@@ -1,3 +1,4 @@
+
 using CQRS.Core.Exceptions;
 using CQRS.Core.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
@@ -8,23 +9,23 @@ namespace Post.Cmd.Api.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class AddCommentController: ControllerBase
+    public class RemoveCommentController: ControllerBase
     {
-        private readonly ILogger<AddCommentController> _logger;
+        private readonly ILogger<RemoveCommentController> _logger;
         private readonly ICommandDispatcher _commandDispatcher;
 
-        public AddCommentController(ILogger<AddCommentController> logger, ICommandDispatcher commandDispatcher) {
+        public RemoveCommentController(ILogger<RemoveCommentController> logger, ICommandDispatcher commandDispatcher) {
             _logger = logger;
             _commandDispatcher = commandDispatcher;
         }
 
-        [HttpPost("{id}")]
-        public async Task<ActionResult> AddCommentAsync(Guid id, AddCommentCommand command) {
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> RemoveCommentAsync(Guid id, RemoveCommentCommand command) {
             try {
             command.Id = id;
             await _commandDispatcher.SendAsync(command);
             return Ok(new BaseResponse {
-                Message = "Added comment request completed succesfully."
+                Message = "Remove comment request completed succesfully."
             });
 
             } catch (InvalidOperationException ex) {
@@ -40,13 +41,12 @@ namespace Post.Cmd.Api.Controllers
                 });
             }
             catch (Exception ex) {
-                const string SAFE_ERROR_MESSAGE = "Error while processing request to add comment to the post!";
+                const string SAFE_ERROR_MESSAGE = "Error while processing request to remove comment to the post!";
                 _logger.Log(LogLevel.Error, ex, SAFE_ERROR_MESSAGE);
                 return StatusCode(StatusCodes.Status500InternalServerError, new BaseResponse {
                     Message = SAFE_ERROR_MESSAGE
                 });
             }
         }
-        
     }
 }
